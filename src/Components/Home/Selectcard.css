@@ -1,0 +1,14 @@
+.selectBook{
+    border: 1px solid gray;
+    border-radius:10px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding: 20px;
+}
+.select{
+    display: flex;
+}
+.select-img{
+    width: 80px;
+}
