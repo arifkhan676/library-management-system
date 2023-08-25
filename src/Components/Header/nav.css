@@ -1,0 +1,19 @@
+nav{
+    background-color: #777799;
+    width: 100%;
+}
+.navbar{
+    display: flex;
+    gap: 10%;
+    padding: 15px;
+}
+.nav-item ul{
+    display: flex;
+    gap: 20px;
+}
+.nav-item ul li{
+    list-style: none;
+}
+.nav-img{
+    width: 200px;
+}
