@@ -2,4 +2,13 @@
     display: flex;
     gap: 30px;
     padding: 10px;
+    width: 70%;
+}
+.Home{
+    display: flex;
+    gap: 5px;
+}
+.select-book{
+    border-left: 1px solid gray;
+    width: 30%;
 }

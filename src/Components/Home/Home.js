@@ -1,41 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './home.css'
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import paradoxical from '../../images/PDS.jpg'
-
+import Bookcard from './Bookcard';
+import { BookData } from '../BookData/BookData';
+import SelectCard from './SelectCard';
 
 const Home = () => {
+
+    const [selectCard, setSelectCard] = useState([]);
+
+    const handleClick = (bookid) => {
+        const selectBook = BookData.find(book => book.id === bookid);
+        setSelectCard(selectBook)
+    }
+    console.log(selectCard);
+
     return (
-        <div>
+        <div className='Home'>
             <div className="book-card">
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={paradoxical} />
-                    <Card.Body>
-                        <Card.Title>Paradoxical Sajid</Card.Title>
-                        <Button variant="primary">Borrow Request</Button>
-                    </Card.Body>
-                </Card>
-
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src='https://th.bing.com/th/id/OIP.tjtAZpCedu3BEyI0Zg9vawHaHa?pid=ImgDet&rs=1' />
-                    <Card.Body>
-                        <Card.Title>Rich Dad Poor Dad</Card.Title>
-                        <Button variant="primary">Borrow Request</Button>
-                    </Card.Body>
-                </Card>
-
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src='https://th.bing.com/th/id/OIP.tjtAZpCedu3BEyI0Zg9vawHaHa?pid=ImgDet&rs=1' />
-                    <Card.Body>
-                        <Card.Title>Rich Dad Poor Dad</Card.Title>
-                        <Button variant="primary">Borrow Request</Button>
-                    </Card.Body>
-                </Card>
+                {
+                    BookData.map(book => {
+                        return <Bookcard
+                            id={book.id}
+                            title={book.title}
+                            src={book.src}
+                            description={book.description}
+                            handleClick={handleClick}
+                        />
+                    })
+                }
             </div>
-
+            <div className="select-book">
+                <h1>Selected Books</h1>
+                <h3> Book Title:  {selectCard.title} </h3>
+            </div>
         </div>
     )
 }
 
 export default Home
+
