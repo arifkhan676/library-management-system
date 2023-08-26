@@ -2,8 +2,6 @@ import React from 'react'
 import './nav.css'
 import Button from 'react-bootstrap/Button';
 
-
-
 const Navbar = () => {
     return (
         <div>

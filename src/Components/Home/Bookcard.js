@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import './Bookcard.css'
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import ModalOpen from './ModalOpen';
 
 const Bookcard = (props) => {
 
@@ -38,7 +39,6 @@ const Bookcard = (props) => {
         e.preventDefault();
 
     }
-
 
 
     const { title, src, description } = props.Bookdetails;
@@ -90,16 +90,18 @@ const Bookcard = (props) => {
                         <Button variant="dark" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={handleSubmit}>
+                        <Button variant="primary" >
                             Submit
                         </Button>
                     </Form>
-                    <Modal.Body>
-                        <Modal.Title>{review.name}</Modal.Title>
-                        <hr />
-                        <Modal.Text > {review.feedback} </Modal.Text>
-                    </Modal.Body>
                 </Modal.Body>
+
+
+                <ModalOpen name={review.name}
+                    feedback={review.feedback}
+                />
+
+
             </Modal>
 
         </div>
