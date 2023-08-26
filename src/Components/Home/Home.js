@@ -3,6 +3,7 @@ import './home.css'
 import Bookcard from './Bookcard';
 import { BookData } from '../BookData/BookData';
 import SelectCard from './SelectCard';
+import Button from 'react-bootstrap/Button';
 
 const Home = () => {
 
@@ -40,6 +41,7 @@ const Home = () => {
                         handleDelete={handleDelete}
                     />
                 })}
+                <Button style={{ marginLeft: '15px' }} variant='warning' > Confirm to borrow </Button>
             </div>
         </div>
     )

@@ -17,6 +17,7 @@ const Bookcard = (props) => {
         name: '',
         feedback: ''
     });
+    const [author, setAuthor] = useState([]);
 
     const handleChangee = (e) => {
         const { name, value } = e.target;
@@ -30,16 +31,19 @@ const Bookcard = (props) => {
 
     const handleSubmit = (e) => {
         //  const { name, feedback } = review;
-        console.log(review);
-        setreview({
-            ...review,
-            name: '',
-            feedback: ''
-        })
+        console.log(author);
+        setAuthor((preValue) => [...preValue, review])
+
         e.preventDefault();
 
     }
 
+    /*
+    let bookitems = null;
+    if(autor.name && autor.feedback != null){
+        bookitems = 
+    }
+*/
 
     const { title, src, description } = props.Bookdetails;
     return (
@@ -61,7 +65,7 @@ const Bookcard = (props) => {
                     <Modal.Title>Give your feedback</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form method='POST' onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Your Name</Form.Label>
                             <Form.Control
@@ -87,20 +91,25 @@ const Bookcard = (props) => {
                                 value={review.feedback}
                                 rows={3} />
                         </Form.Group>
-                        <Button variant="dark" onClick={handleClose}>
+                        <Button variant="dark" style={{ marginLeft: '10px' }} onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary" >
+                        <Button type='submit' style={{ marginLeft: '10px' }} variant="primary" >
                             Submit
                         </Button>
                     </Form>
+                    <Modal.Title style={{ marginTop: '20px' }} > All Reviews </Modal.Title>
+
+                    {
+                        author.map((feedback) => {
+                            return <ModalOpen name={feedback.name}
+                                feedback={feedback.feedback}
+                            />
+                        })
+                    }
+
+
                 </Modal.Body>
-
-
-                <ModalOpen name={review.name}
-                    feedback={review.feedback}
-                />
-
 
             </Modal>
 

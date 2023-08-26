@@ -2,9 +2,12 @@ import React from 'react'
 
 const ModalOpen = (props) => {
     return (
-        <div>
-            <h3> {props.name} </h3>
-            <p> {props.feedback} </p>
+        <div style={{ textAlign: 'left' }}  >
+            <hr />
+            <div >
+                <h6 >Author: {props.name} </h6>
+                <p> Feedback: {props.feedback} </p>
+            </div>
         </div>
     )
 }
