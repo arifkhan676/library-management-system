@@ -20,7 +20,6 @@ const SelectCard = (props) => {
             <Button onClick={() => { props.handleDelete(id) }} variant="danger">Delete</Button>
         </div>
 
-
     )
 }
 
