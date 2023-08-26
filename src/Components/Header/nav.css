@@ -1,11 +1,11 @@
-nav{
-    background-color: #777799;
-    width: 100%;
-}
+
 .navbar{
+    background-color: #777799;
     display: flex;
-    gap: 10%;
-    padding: 15px;
+    gap: 20%;
+}
+.nav-item{
+    margin-left: auto;
 }
 .nav-item ul{
     display: flex;
