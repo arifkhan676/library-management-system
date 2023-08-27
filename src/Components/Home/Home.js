@@ -33,7 +33,7 @@ const Home = () => {
                 }
             </div>
             <div className="select-book">
-                <h3 >Selected Books</h3>
+                <h3 >Selected Books : {selectCard.length}  </h3>
                 {selectCard.map(newbook => {
                     return <SelectCard
                         id={newbook.id}
