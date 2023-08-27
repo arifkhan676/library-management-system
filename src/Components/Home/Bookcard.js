@@ -5,6 +5,7 @@ import './Bookcard.css'
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import ModalOpen from './ModalOpen';
+import { Link, NavLink } from 'react-router-dom';
 
 const Bookcard = (props) => {
 
@@ -38,21 +39,25 @@ const Bookcard = (props) => {
 
     }
 
-    /*
-    let bookitems = null;
-    if(autor.name && autor.feedback != null){
-        bookitems = 
-    }
-*/
+    /*  const useHistory = useHistory();
+      const click = (id) => {
+          const url = `/Books/${id}`
+          useHistory.push(url);
+      }
+      <Card.Title> <NavLink to={() => { click(id) }}> {title} </NavLink>  </Card.Title>
+  
+      //evabeo use kora jay
+  */
 
-    const { title, src, description } = props.Bookdetails;
+    const { title, src, description, id } = props.Bookdetails;
+
     return (
         <div>
-            <Card style={{ width: '18rem', margin: '15%' }}>
+            <Card style={{ width: '18rem' }} >
                 <Card.Img variant="top" src={src} />
                 <Card.Body>
-                    <Card.Title> {title}</Card.Title>
-                    <Card.Text>{description}  </Card.Text>
+                    <Card.Title> <NavLink to={`/Books/${id}`}> {title} </NavLink>  </Card.Title>
+                    <Card.Text > {description}  </Card.Text>
                     <div className="button">
                         <Button onClick={() => { props.handleClick(props.Bookdetails) }} variant="primary">Borrow Request</Button>
                         <Button onClick={handleShow} variant="warning">See Review</Button>

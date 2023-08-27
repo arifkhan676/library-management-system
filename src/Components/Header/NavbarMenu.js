@@ -1,6 +1,7 @@
 import React from 'react'
 import './nav.css'
 import Button from 'react-bootstrap/Button';
+import { NavLink } from 'react-router-dom';
 
 
 const NavbarMenu = () => {
@@ -8,7 +9,7 @@ const NavbarMenu = () => {
         <div>
             <nav className='navbar navbar-expand-lg' >
                 <div className="logo">
-                    <img className='nav-img' src="https://th.bing.com/th/id/OIP.VfiAsoTR0impBvTd3guKogHaBd?pid=ImgDet&rs=1" alt="" />
+                    <NavLink to='/' >  <img className='nav-img' src="https://th.bing.com/th/id/OIP.VfiAsoTR0impBvTd3guKogHaBd?pid=ImgDet&rs=1" alt="" /> </NavLink>
                 </div>
                 <div className="navbar">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
