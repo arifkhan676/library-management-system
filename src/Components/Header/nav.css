@@ -17,3 +17,9 @@
 .nav-img{
     width: 200px;
 }
+.dropdown-menu a{
+    background-color: #fff;
+}
+.dropdown-item a:hover{
+    background-color: #FFCA2C;
+}
