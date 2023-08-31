@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import Books from './Components/BooksPage/Books';
 import NotFound from './Components/NotFound/NotFound';
 import MainComponents from './Components/MainComponent/MainComponents';
+import Sign from './Components/Sign/Sign';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path='/' element={<MainComponents />} >  </Route>
         <Route path='/Navbar' element={<NavbarMenu />} >   </Route>
         <Route path='/Books/:bookId' element={<Books />} >   </Route>
+        <Route path='/Signin' element={<Sign />} >   </Route>
         <Route path='*' element={<NotFound />}  >  </Route>
 
       </Routes>

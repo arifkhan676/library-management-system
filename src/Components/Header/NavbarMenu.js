@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import './nav.css'
 import Button from 'react-bootstrap/Button';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { auth, provider } from '../../firebase.config';
 import { signInWithPopup } from 'firebase/auth';
+import Sign from '../Sign/Sign';
 
 const NavbarMenu = () => {
 
@@ -69,6 +70,10 @@ const NavbarMenu = () => {
                             <div className="dropdown-menu " aria-labelledby="navbarDropdown">
                                 <button className="dropdown-item" onClick={googleLogin} >
                                     {googleData.isLogin === false ? 'Login' : 'Logout'}
+                                </button>
+                                <button className="dropdown-item"  >
+                                    <Link to='Signin' > Sigin </Link>
+
                                 </button>
                             </div>
                         </div>
