@@ -6,7 +6,10 @@ import { auth, provider } from '../../firebase.config';
 import { signInWithPopup } from 'firebase/auth';
 import Sign from '../Sign/Sign';
 
+
+
 const NavbarMenu = () => {
+
 
     const [googleData, setGoogleData] = useState(
         {
@@ -32,7 +35,7 @@ const NavbarMenu = () => {
 
         })
     }
-    console.log(googleData);
+    // console.log(googleData);
 
     return (
         <div>
@@ -71,10 +74,10 @@ const NavbarMenu = () => {
                                 <button className="dropdown-item" onClick={googleLogin} >
                                     {googleData.isLogin === false ? 'Login' : 'Logout'}
                                 </button>
-                                <button className="dropdown-item"  >
-                                    <Link to='Signin' > Sigin </Link>
-
+                                <button className="dropdown-item" ContextAPI >
+                                    <Link to='Signin'> sigin </Link>
                                 </button>
+
                             </div>
                         </div>
                     </div>
