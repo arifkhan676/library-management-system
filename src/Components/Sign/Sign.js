@@ -2,17 +2,16 @@ import React, { useContext, useState } from 'react'
 import './Sign.css'
 import { ContextAPI } from '../../App'
 
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
+import { auth } from '../../firebase.config';
+
 const Sign = () => {
 
     const [googleData, setGoogleData] = useContext(ContextAPI)
     console.log(googleData);
 
     // const [getVal, setgetVal] = useState('')
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,18 +33,38 @@ const Sign = () => {
             setGoogleData(formUser)
         }
     }
+    const handleSubmit = (e) => {
+        if (googleData.email && googleData.password) {
+            createUserWithEmailAndPassword(auth, googleData.email, googleData.password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode, errorMessage);
+                    // ..
+                });
+        }
+
+        e.preventDefault();
+    }
 
 
     return (
-        <div >
+        <div className='form'>
             <form action="" onSubmit={handleSubmit} >
+                <input placeholder='You Name' name='name' onChange={handleChange} type="text" />
+                <br />
                 <input placeholder='email' name='email' onChange={handleChange} type="text" />
                 <br />
                 <input placeholder='password' name='password' onChange={handleChange} type="password" />
                 <br />
                 <button className='btn btn-primary' value='Submit' type="Submit" > Submit </button>
             </form>
-            <p> {googleData.email} </p>
+
         </div>
     )
 }

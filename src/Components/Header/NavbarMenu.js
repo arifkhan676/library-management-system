@@ -24,7 +24,7 @@ const NavbarMenu = () => {
     const googleLogin = () => {
         signInWithPopup(auth, provider).then(res => {
             const { displayName, email, photoURL } = res.user;
-            // console.log(res.user)
+            console.log(res.user)
             const newUser = {
                 isLogin: true,
                 name: displayName,
