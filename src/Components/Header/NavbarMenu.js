@@ -1,41 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './nav.css'
 import Button from 'react-bootstrap/Button';
 import { Link, NavLink } from 'react-router-dom';
-import { auth, provider } from '../../firebase.config';
-import { signInWithPopup } from 'firebase/auth';
-import Sign from '../Sign/Sign';
+import { ContextAPI } from '../../App';
 
 
 
 const NavbarMenu = () => {
 
-
-    const [googleData, setGoogleData] = useState(
-        {
-            isLogin: false,
-            name: '',
-            email: '',
-            photoURL: ''
-        }
-    );
+    const [googleData, setGoogleData] = useContext(ContextAPI)
 
 
-    const googleLogin = () => {
-        signInWithPopup(auth, provider).then(res => {
-            const { displayName, email, photoURL } = res.user;
-            console.log(res.user)
-            const newUser = {
-                isLogin: true,
-                name: displayName,
-                email: email,
-                photoURL: photoURL
-            }
-            setGoogleData(newUser)
-
-        })
-    }
-    // console.log(googleData);
+    console.log(googleData);
 
     return (
         <div>
@@ -63,7 +39,16 @@ const NavbarMenu = () => {
                                 <a class="nav-link" href="#">Seat Book</a>
                             </li>
                             <li class="nav-item">
-                                {googleData.isLogin && <img style={{ width: '50px', borderRadius: '25px' }} src={googleData.photoURL} alt="" />}
+                                <div className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="www.google.com" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {googleData.isLogin && <img style={{ width: '50px', borderRadius: '25px' }} src={googleData.photoURL} alt="" />}
+                                    </a>
+                                    <div className="dropdown-menu " aria-labelledby="navbarDropdown">
+                                        <button className="dropdown-item"  >
+                                            <Link to='Login' > {googleData.name} </Link>
+                                        </button>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
                         <div className="nav-item dropdown">
@@ -71,13 +56,14 @@ const NavbarMenu = () => {
                                 <Button variant="outline-dark">Users</Button>
                             </a>
                             <div className="dropdown-menu " aria-labelledby="navbarDropdown">
-                                <button className="dropdown-item" onClick={googleLogin} >
-                                    {googleData.isLogin === false ? 'Login' : 'Logout'}
-                                </button>
-                                <button className="dropdown-item" ContextAPI >
-                                    <Link to='Signin'> sigin </Link>
+
+                                <button className="dropdown-item"  >
+                                    <Link to='Login' > Log In </Link>
                                 </button>
 
+                                <button className="dropdown-item"  >
+                                    <Link to='Signin'> sigin </Link>
+                                </button>
                             </div>
                         </div>
                     </div>

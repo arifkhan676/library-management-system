@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import './Sign.css'
 import { ContextAPI } from '../../App'
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, provider } from '../../firebase.config';
+import { Link } from 'react-router-dom';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import { auth, provider } from '../../firebase.config';
 
-const Sign = () => {
+const Login = () => {
 
     const [googleData, setGoogleData] = useContext(ContextAPI)
 
@@ -44,44 +45,45 @@ const Sign = () => {
             setGoogleData(formUser)
         }
     }
+
     const handleSubmit = (e) => {
         const userdata = { ...googleData };
         if (googleData.email && googleData.password) {
-            createUserWithEmailAndPassword(auth, googleData.email, googleData.password)
+            signInWithEmailAndPassword(auth, googleData.email, googleData.password)
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    userdata.success = 'Account Successfully created'
-                    userdata.isLogin = false
-                    setGoogleData(userdata);
-                    userdata.error = ''
+                    userdata.success = 'successfully login'
+                    userdata.isLogin = false;
+                    setGoogleData(userdata)
+                    // ...
                 })
-                .catch(() => {
-                    userdata.error = 'This email already in used';
-                    userdata.isLogin = true
-                    setGoogleData(userdata);
+                .catch((error) => {
+                    userdata.isLogin = true;
+                    userdata.error = 'wrong information'
+                    setGoogleData(userdata)
                 });
-        }
 
+        }
         e.preventDefault();
     }
 
-
     return (
         <div className='form'>
-            <h4> Please Sign in </h4>
+            <h4> Please Login in </h4>
 
-            {googleData.isLogin === false ? <p style={{ color: 'green' }} >  {googleData.success} </p> : <p style={{ color: 'red' }} > {googleData.error} </p>}
+
+
+            {googleData.isLogin === false ? <Link to='' >  <p style={{ color: 'green' }} >  {googleData.success} </p> </Link> : <p style={{ color: 'red' }} > {googleData.error} </p>}
 
             <form action="" onSubmit={handleSubmit} >
-                <input placeholder='You Name' name='name' onChange={handleChange} type="text" />
-                <br />
                 <input placeholder='email' name='email' onChange={handleChange} type="text" />
                 <br />
                 <input placeholder='password' name='password' onChange={handleChange} type="password" />
                 <br />
                 <button className='btn btn-primary' value='Submit' type="Submit" > Submit </button>
             </form>
+
             <hr />
             <p> Login With </p>
             <div className="footer">
@@ -89,8 +91,9 @@ const Sign = () => {
                 <GoogleIcon onClick={googleLogin} />
                 <FacebookIcon />
             </div>
+
         </div>
     )
 }
 
-export default Sign
+export default Login
