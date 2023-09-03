@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useHistory } from 'react'
 import './home.css'
 import Bookcard from './Bookcard';
 import { BookData } from '../BookData/BookData';
 import SelectCard from './SelectCard';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -17,6 +18,12 @@ const Home = () => {
     const handleDelete = (selectbook) => {
         const removeBook = selectCard.filter(book => book.id !== selectbook)
         setSelectCard(removeBook)
+    }
+
+    const History = useHistory();
+
+    const handleBorrow = () => {
+        History.push('/proceed')
     }
 
     return (
@@ -41,7 +48,7 @@ const Home = () => {
                         handleDelete={handleDelete}
                     />
                 })}
-                <Button style={{ marginLeft: '15px' }} variant='warning' > Confirm to borrow </Button>
+                <Button onClick={handleBorrow} style={{ marginLeft: '15px' }} variant='warning' > Confirm to borrow   </Button>
             </div>
         </div>
     )
