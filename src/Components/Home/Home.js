@@ -20,12 +20,12 @@ const Home = () => {
         setSelectCard(removeBook)
     }
 
-    const History = useHistory();
-
-    const handleBorrow = () => {
-        History.push('/proceed')
-    }
-
+    /*  const History = useHistory();
+  
+      const handleBorrow = () => {
+          History.push('/proceed')
+      }
+  */
     return (
         <div className='Home'>
             <div className="book-card">
@@ -48,7 +48,7 @@ const Home = () => {
                         handleDelete={handleDelete}
                     />
                 })}
-                <Button onClick={handleBorrow} style={{ marginLeft: '15px' }} variant='warning' > Confirm to borrow   </Button>
+                <Button style={{ marginLeft: '15px' }} variant='warning' > Confirm to borrow   </Button>
             </div>
         </div>
     )
