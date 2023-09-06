@@ -3,13 +3,16 @@ import './Sign.css'
 import { ContextAPI } from '../../App'
 import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider } from '../../firebase.config';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 
 const Login = () => {
 
     const [googleData, setGoogleData] = useContext(ContextAPI)
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const googleLogin = () => {
         signInWithPopup(auth, provider).then(res => {
@@ -56,11 +59,15 @@ const Login = () => {
                     userdata.success = 'successfully login'
                     userdata.isLogin = false;
                     setGoogleData(userdata)
+                    if (location.state?.from) {
+                        navigate(location.state.from)
+                    }
+
                     // ...
                 })
                 .catch((error) => {
                     userdata.isLogin = true;
-                    userdata.error = 'wrong information'
+                    userdata.error = 'wrong information! sign in please'
                     setGoogleData(userdata)
                 });
 
