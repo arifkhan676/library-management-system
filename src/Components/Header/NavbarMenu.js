@@ -27,16 +27,17 @@ const NavbarMenu = () => {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Library <span class="sr-only">(current)</span></a>
+
+                                <Link class="nav-link" to="/">Library <span class="sr-only">(current)</span></Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Student Entry</a>
+                                <Link class="nav-link" to="/StudentEntry">Student Entry</Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Total Books</a>
+                                <Link class="nav-link" to="/TotalBooks">Total Books</Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Seat Book</a>
+                                <Link class="nav-link" to="/SeatBook">Seat Book</Link>
                             </li>
                             <li class="nav-item">
                                 <div className="nav-item dropdown">
@@ -62,8 +63,12 @@ const NavbarMenu = () => {
                                 </button>
 
                                 <button className="dropdown-item"  >
-                                    <Link to='Signin'> sigin </Link>
+                                    <Link to='Signin'> Sign In </Link>
                                 </button>
+                                {googleData.email && <button onClick={() => { setGoogleData({}) }} className="dropdown-item"  >
+                                    <Link to='Signin'> Sign Out </Link>
+                                </button>}
+
                             </div>
                         </div>
                     </div>
