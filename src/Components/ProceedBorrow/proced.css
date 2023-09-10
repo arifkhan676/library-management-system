@@ -1,13 +1,13 @@
-.form{
+.proceed-form{
     margin: 30px 100px;
     margin-left: 40%;
 }
-.form input{
+.proceed-form input{
     display: block;
     margin-top: 20px;
     width: 300px;
 }
-.form span{
+.proceed-form span{
     display: block;
     width: 300px;
 }

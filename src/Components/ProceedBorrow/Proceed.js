@@ -13,7 +13,7 @@ const Proceed = () => {
     return (
         <div>
             <h3> Shipping Form </h3>
-            <form onSubmit={handleSubmit(onSubmit)} className='form'>
+            <form onSubmit={handleSubmit(onSubmit)} className='proceed-form'>
 
                 <input placeholder="firstName" defaultValue={googleData.name} {...register("firstName", { required: true, })} />
                 {errors.firstName && <span style={{ color: 'red' }} >firstName is required</span>}
