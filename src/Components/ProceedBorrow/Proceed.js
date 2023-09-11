@@ -1,13 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { ContextAPI } from '../../App'
 import './proced.css'
+import SweetAlert2 from 'react-sweetalert2';
 
 const Proceed = () => {
+    const [swalProps, setSwalProps] = useState({});
+
     const { register, handleSubmit, watch, formState: { errors }, } = useForm()
     const [googleData, setGoogleData] = useContext(ContextAPI)
 
-    const onSubmit = (data) => { console.log(data) }
+    const onSubmit = (data) => {
+        console.log(data)
+        setSwalProps({
+            show: true,
+            title: 'Submitted!',
+            text: 'Thank You for submission',
+        });
+    }
 
     console.log(watch("firstName"));
     return (
@@ -29,6 +39,8 @@ const Proceed = () => {
 
                 <input type="submit" placeholder='' />
             </form>
+            <SweetAlert2 {...swalProps} />
+
         </div>
     )
 }

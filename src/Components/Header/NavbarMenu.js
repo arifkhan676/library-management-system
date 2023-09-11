@@ -17,7 +17,7 @@ const NavbarMenu = () => {
         <div>
             <nav className='navbar navbar-expand-lg' >
                 <div className="logo">
-                    <NavLink to='/' >  <img className='nav-img' src="https://th.bing.com/th/id/OIP.VfiAsoTR0impBvTd3guKogHaBd?pid=ImgDet&rs=1" alt="" /> </NavLink>
+                    <NavLink to='/' >  <img className='nav-img' src="https://i.ibb.co/wgFD45M/uits-logo-removebg-preview.png" alt="" /> </NavLink>
                 </div>
                 <div className="navbar">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@ const NavbarMenu = () => {
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
 
-                                <Link class="nav-link" to="/">Library <span class="sr-only">(current)</span></Link>
+                                <Link class="nav-link" to="/"> Library <span class="sr-only">(current)</span></Link>
                             </li>
                             <li class="nav-item">
                                 <Link class="nav-link" to="/StudentEntry">Student Entry</Link>
