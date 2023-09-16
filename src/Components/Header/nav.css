@@ -1,8 +1,6 @@
 
-.navbar{
-    background-color: #777799;
-    display: flex;
-    gap: 20%;
+.navbaar{
+    color: #fff;
 }
 .nav-item{
     margin-left: auto;
@@ -23,4 +21,7 @@
 }
 .dropdown-item a:hover{
     background-color: #FFCA2C;
+}
+.nav-link{
+    color: #fff;
 }

@@ -16,3 +16,19 @@ h3{
     padding: 10px;
     text-align: center;
 }
+
+@media (max-width:900px) {
+    .Home{
+        display: flex;
+        
+    }
+    .book-card{
+        display: block;
+        padding: 10px;
+        width: 60%;
+    }
+    .select-book{
+        border-left: 1px solid gray;
+        width: 40%;
+    }
+}

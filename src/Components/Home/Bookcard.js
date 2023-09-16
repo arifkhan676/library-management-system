@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import ModalOpen from './ModalOpen';
 import { Link, NavLink } from 'react-router-dom';
+import { CardGroup } from 'react-bootstrap';
+
 
 const Bookcard = (props) => {
 

@@ -12,3 +12,24 @@
 .select-img{
     width: 80px;
 }
+@media (max-width:900px) {
+    .selectBook{
+        border: 1px solid gray;
+        border-radius:10px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+        margin-left: 15px;
+        padding: 20px;
+    }
+    .select{
+        width: 50%;
+        margin-left: -15px;
+    }
+   
+    .select-img{
+        width: 70px;
+        display: inline;
+    }
+    
+    
+}
