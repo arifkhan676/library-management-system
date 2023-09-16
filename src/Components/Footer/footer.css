@@ -1,0 +1,14 @@
+.footer{
+    background-color: #101418;
+    width: 100%;
+    height: 30vh;
+    text-align: center;
+}
+.footer-p{
+    padding-top: 50px;
+    color: #fff;
+}
+
+.stack{
+    margin: 0% 45%;
+}
