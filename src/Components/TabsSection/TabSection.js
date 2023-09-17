@@ -46,13 +46,15 @@ const TabSection = () => {
         setValue(newValue);
     };
 
+    /*  value added*/
+
 
     return (
         <div  >
             <Box sx={{ width: '100%', height: '50vh', backgroundColor: '#0F1924' }}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        <Tab style={{ color: '#fff' }} label="Item One" {...a11yProps(0)} />
+                        <Tab style={{ color: '#fff' }} label="Item One" {...a11yProps('Tab1')} />
                         <Tab style={{ color: '#fff' }} label="Item Two" {...a11yProps(1)} />
                         <Tab style={{ color: '#fff' }} label="Item Three" {...a11yProps(2)} />
                     </Tabs>
