@@ -5,9 +5,14 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import './Tab.css'
+import { BookData } from '../BookData/BookData';
+import Bookcard from '../Home/Bookcard';
+import { BookData2 } from '../BookData/BookData';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
+
+
 
     return (
         <div
@@ -50,8 +55,8 @@ const TabSection = () => {
 
 
     return (
-        <div  >
-            <Box sx={{ width: '100%', height: '50vh', backgroundColor: '#0F1924' }}>
+        <div className='tab-section' >
+            <Box >
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                         <Tab style={{ color: '#fff' }} label="Item One" {...a11yProps(0)} />
@@ -60,10 +65,30 @@ const TabSection = () => {
                     </Tabs>
                 </Box>
                 <CustomTabPanel value={value} index={0}>
+                    <div className='tab-book' >
+                        {
+                            BookData2.map((book) => {
+                                return <Bookcard
+                                    id={book.id}
+                                    Bookdetails={book}
+                                />
 
+                            })
+                        }
+                    </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={1}>
-                    Item Two
+                    <div className='tab-book' >
+                        {
+                            BookData.map((book) => {
+                                return <Bookcard
+                                    id={book.id}
+                                    Bookdetails={book}
+                                />
+
+                            })
+                        }
+                    </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={2}>
                     Item Three

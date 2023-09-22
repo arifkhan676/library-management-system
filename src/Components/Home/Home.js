@@ -49,7 +49,7 @@ const Home = () => {
                         handleDelete={handleDelete}
                     />
                 })}
-                <Button onClick={handleBorrow} style={{ marginLeft: '15px' }} variant='warning' > Confirm to borrow   </Button>
+                <Button onClick={handleBorrow} style={{ marginLeft: '15px', marginBottom: '30px' }} variant='warning' > Confirm to borrow   </Button>
             </div>
         </div>
     )
