@@ -65,7 +65,7 @@ const NavbarMenu = () => {
                                             </NavDropdown.Item>
                                             <NavDropdown.Divider />
                                             <NavDropdown.Item >
-                                                <Link to='Signin' > Sign In </Link>
+                                                <Link to='Signin' > Sign Up </Link>
                                             </NavDropdown.Item>
                                             {googleData.email && <button onClick={() => { setGoogleData({}) }} className="dropdown-item"  >
                                                 <Link to='Signin'  > Sign Out </Link>

@@ -84,7 +84,7 @@ const Sign = () => {
             </form>
             <hr />
             <p> Login With </p>
-            <div className="footer">
+            <div className="footer-icons">
 
                 <GoogleIcon onClick={googleLogin} />
                 <FacebookIcon />

@@ -5,13 +5,12 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import './Tab.css'
-import { BookData } from '../BookData/BookData';
+import { BookData, BookData3 } from '../BookData/BookData';
 import Bookcard from '../Home/Bookcard';
 import { BookData2 } from '../BookData/BookData';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
-
 
 
     return (
@@ -91,7 +90,17 @@ const TabSection = () => {
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={2}>
-                    Item Three
+                    <div className='tab-book' >
+                        {
+                            BookData3.map((book) => {
+                                return <Bookcard
+                                    id={book.id}
+                                    Bookdetails={book}
+                                />
+
+                            })
+                        }
+                    </div>
                 </CustomTabPanel>
             </Box>
         </div>

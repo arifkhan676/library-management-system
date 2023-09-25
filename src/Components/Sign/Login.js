@@ -92,9 +92,8 @@ const Login = () => {
             </form>
 
             <hr />
-            <p> Login With </p>
-            <div className="footer">
-
+            <p>Click Below to Login with</p>
+            <div className="footer-icons">
                 <GoogleIcon onClick={googleLogin} />
                 <FacebookIcon />
             </div>

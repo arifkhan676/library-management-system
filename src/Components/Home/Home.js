@@ -52,6 +52,7 @@ const Home = () => {
                 <Button onClick={handleBorrow} style={{ marginLeft: '15px', marginBottom: '30px' }} variant='warning' > Confirm to borrow   </Button>
             </div>
         </div>
+
     )
 }
 
