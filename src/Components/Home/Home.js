@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './home.css'
 import Bookcard from './Bookcard';
-import { BookData } from '../BookData/BookData';
+import { BookData, BookData2 } from '../BookData/BookData';
 import SelectCard from './SelectCard';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
@@ -32,6 +32,15 @@ const Home = () => {
             <div className="book-card">
                 {
                     BookData.map(book => {
+                        return <Bookcard
+                            id={book.id}
+                            Bookdetails={book}
+                            handleClick={handleClick}
+                        />
+                    })
+                }
+                {
+                    BookData2.map(book => {
                         return <Bookcard
                             id={book.id}
                             Bookdetails={book}

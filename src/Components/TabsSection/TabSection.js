@@ -71,6 +71,14 @@ const TabSection = () => {
                                     id={book.id}
                                     Bookdetails={book}
                                 />
+                            })
+                        }
+                        {
+                            BookData3.map((book) => {
+                                return <Bookcard
+                                    id={book.id}
+                                    Bookdetails={book}
+                                />
 
                             })
                         }
@@ -87,6 +95,14 @@ const TabSection = () => {
 
                             })
                         }
+                        {
+                            BookData2.map((book) => {
+                                return <Bookcard
+                                    id={book.id}
+                                    Bookdetails={book}
+                                />
+                            })
+                        }
                     </div>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={2}>
@@ -98,6 +114,14 @@ const TabSection = () => {
                                     Bookdetails={book}
                                 />
 
+                            })
+                        }
+                        {
+                            BookData2.map((book) => {
+                                return <Bookcard
+                                    id={book.id}
+                                    Bookdetails={book}
+                                />
                             })
                         }
                     </div>

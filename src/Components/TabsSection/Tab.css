@@ -8,5 +8,19 @@
     gap: 30px;
     margin-top: 30px;
     margin-left: 30px;
-   
+}
+
+@media (max-width:900px) {
+    .tab-section{
+        background-color: #0F1924;
+        position: relative;
+        top: 760px;
+        width: 100%;
+    }
+    .tab-book{
+        display: flex;
+        gap: 30px;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
 }

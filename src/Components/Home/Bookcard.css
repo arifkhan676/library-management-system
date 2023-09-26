@@ -5,3 +5,16 @@
 .modal{
     text-align: left;
 }
+.card{
+    width: 18em;
+}
+
+
+@media (max-width:900px) {
+   
+    .small-button{
+        padding: 5px 10px; 
+       font-size: 14px; 
+    }
+    
+} 

@@ -8,7 +8,7 @@ export const BookData = [
     },
     {
         id: 'book2',
-        title: 'Road to success',
+        title: 'The Road to success',
         description: 'Road to success Book is an  book I have ever read',
         src: 'https://th.bing.com/th/id/OIP.CQNxXbrofRRWrA7cD9yokAAAAA?pid=ImgDet&w=300&h=300&rs=1'
     },
@@ -30,13 +30,13 @@ export const BookData2 = [
     },
     {
         id: 'book2',
-        title: 'Leadership',
+        title: 'Mastering Leadership',
         description: 'Leadership is an extraordinary book I have ever read',
         src: 'https://th.bing.com/th/id/OIP.NLnWwlOLmmZQGZh3-ZZfJAHaHa?pid=ImgDet&rs=1'
     },
     {
         id: 'book3',
-        title: 'Time management book',
+        title: 'Time Management',
         description: 'Time management book is an  book I have ever read',
         src: 'https://th.bing.com/th/id/R.129330bf330b29789c955a1fc731a7f7?rik=kbzdHxJo2288mA&pid=ImgRaw&r=0'
     },
@@ -59,7 +59,7 @@ export const BookData3 = [
     },
     {
         id: 'book3',
-        title: 'Time management book',
+        title: 'Time Management',
         description: 'Time management book is extraordinary book, I have ever read',
         src: 'https://th.bing.com/th/id/R.129330bf330b29789c955a1fc731a7f7?rik=kbzdHxJo2288mA&pid=ImgRaw&r=0'
     },

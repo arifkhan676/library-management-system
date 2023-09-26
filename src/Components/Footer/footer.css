@@ -3,6 +3,7 @@
     width: 100%;
     height: 30vh;
     text-align: center;
+
 }
 .footer-p{
     padding-top: 50px;
@@ -11,4 +12,16 @@
 
 .stack{
     margin: 0% 45%;
+}
+
+@media (max-width:900px) {
+    .footer{
+        background-color: #101418;
+        width: 100%;
+        height: 30vh;
+        text-align: center;
+        position: relative;
+        margin-top: 130%;
+
+    }
 }

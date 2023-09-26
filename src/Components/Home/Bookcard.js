@@ -55,14 +55,14 @@ const Bookcard = (props) => {
 
     return (
         <div>
-            <Card style={{ width: '18rem' }} >
+            <Card style={{ width: '11.5rem' }} >
                 <Card.Img variant="top" src={src} />
                 <Card.Body>
                     <Card.Title> <NavLink to={`/Books/${id}`}> {title} </NavLink>  </Card.Title>
-                    <Card.Text > {description}  </Card.Text>
+                    <Card.Text > Make Order Please  </Card.Text>
                     <div className="button">
-                        <Button onClick={() => { props.handleClick(props.Bookdetails) }} variant="primary">Borrow Request</Button>
-                        <Button onClick={handleShow} variant="warning">See Review</Button>
+                        <Button className="small-button" onClick={() => { props.handleClick(props.Bookdetails) }} variant="primary">Order</Button>
+                        <Button className="small-button" onClick={handleShow} variant="warning">Review</Button>
                     </div>
                 </Card.Body>
             </Card>
