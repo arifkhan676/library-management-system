@@ -10,7 +10,7 @@ const SelectCard = (props) => {
         <div className="selectBook">
             <div className='select'>
                 <div className="title">
-                    <h5> Book title: {title} </h5>
+                    <h5> Book Title: {title} </h5>
                     <p  >{description}</p>
                 </div>
                 <div className="img">

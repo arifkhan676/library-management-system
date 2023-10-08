@@ -5,6 +5,7 @@
     margin-right: 15px;
     margin-left: 15px;
     padding: 20px;
+
 }
 .select{
     display: flex;
@@ -12,6 +13,12 @@
 .select-img{
     width: 80px;
 }
+.title h5{
+   font-family: 'Nunito Sans', sans-serif;
+}
+
+
+
 @media (max-width:900px) {
     .selectBook{
         border: 1px solid gray;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './home.css'
 import Bookcard from './Bookcard';
 import { BookData, BookData2 } from '../BookData/BookData';
@@ -6,14 +6,20 @@ import SelectCard from './SelectCard';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import { CardGroup } from 'react-bootstrap';
+import { ContextAPI } from '../../App';
 
 const Home = () => {
+
+    const [googleData, setGoogleData] = useContext(ContextAPI)
+
 
     const [selectCard, setSelectCard] = useState([]);
 
     const handleClick = (bookid) => {
         const newBooks = [...selectCard, bookid]
         setSelectCard(newBooks)
+        setGoogleData({ lengthVal: newBooks })
+
     }
 
     const handleDelete = (selectbook) => {

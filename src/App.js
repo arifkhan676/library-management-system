@@ -23,7 +23,8 @@ function App() {
       isLogin: false,
       name: '',
       email: '',
-      photoURL: ''
+      photoURL: '',
+      lengthVal: []
     }
   );
 

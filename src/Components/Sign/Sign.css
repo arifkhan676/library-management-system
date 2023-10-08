@@ -1,11 +1,16 @@
 .form{
     text-align: center;
     position: relative;
-    top: 50px;
+    margin-top: 10%;
 }
 .btn{
     position: relative;
     top: 10px;
+}
+.form p{
+    margin-top: 15px;
+    margin-bottom: 25px;
+
 }
 .form input{
     padding: 10px 20px ;

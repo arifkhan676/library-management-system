@@ -20,6 +20,7 @@ const Bookcard = (props) => {
         name: '',
         feedback: ''
     });
+
     const [author, setAuthor] = useState([]);
 
     const handleChangee = (e) => {
@@ -55,7 +56,7 @@ const Bookcard = (props) => {
 
     return (
         <div>
-            <Card style={{ width: '11.5rem' }} >
+            <Card style={{ width: '11rem' }} >
                 <Card.Img variant="top" src={src} />
                 <Card.Body>
                     <Card.Title> <NavLink to={`/Books/${id}`}> {title} </NavLink>  </Card.Title>

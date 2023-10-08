@@ -3,6 +3,8 @@ import './nav.css'
 import Button from 'react-bootstrap/Button';
 import { Link, NavLink } from 'react-router-dom';
 import { ContextAPI } from '../../App';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Badge } from '@mui/material';
 
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -23,7 +25,7 @@ const NavbarMenu = () => {
 
         <div className='navbaar'>
             {['sm'].map((expand) => (
-                <Navbar key={expand} expand={expand} className="bg-dark mb-3 " >
+                <Navbar key={expand} expand={expand} fixed='top' className="bg-dark mb-3 " >
                     <Container fluid>
                         <Navbar.Brand >
                             <NavLink to='/' >  <img className='nav-img' src="https://i.ibb.co/wgFD45M/uits-logo-removebg-preview.png" alt="" /> </NavLink>
@@ -47,11 +49,18 @@ const NavbarMenu = () => {
                                         <Link class="nav-link" to="/" style={{ color: 'white' }}  > Library <span class="sr-only">(current)</span></Link>
                                     </Nav.Link>
                                     <Nav.Link href="#action2">
-                                        <Link class="nav-link" to="/StudentEntry" style={{ color: 'white' }}  >Student Entry</Link>
+                                        <Link className="nav-link" to="/StudentEntry" style={{ color: 'white' }}  >Student Entry</Link>
                                     </Nav.Link>
                                     <Nav.Link href="#action2">
-                                        <Link class="nav-link" to="/TotalBooks" style={{ color: 'white' }}  >Total Books</Link>
+                                        <Link className="nav-link" to="/TotalBooks" style={{ color: 'white' }}  >Total Books</Link>
                                     </Nav.Link>
+
+                                    <Nav.Link href="#action2">
+                                        <Badge badgeContent={googleData.lengthVal && googleData.lengthVal.length} color="secondary" style={{ margin: '10px 20px 0px 20px  ', color: '#fff' }}>
+                                            <ShoppingCartIcon />
+                                        </Badge>
+                                    </Nav.Link>
+
 
                                     <Nav.Link style={{ display: 'flex' }} >
 
@@ -79,7 +88,7 @@ const NavbarMenu = () => {
                                             id={`offcanvasNavbarDropdown-expand-${expand}`}
                                         >
                                             <NavDropdown.Item >
-                                                <Link to='Login' style={{ color: 'white' }}  > {googleData.name} </Link>
+                                                <Link to='Login' style={{ color: 'black' }}  > {googleData.name} </Link>
                                             </NavDropdown.Item>
                                         </NavDropdown>
 

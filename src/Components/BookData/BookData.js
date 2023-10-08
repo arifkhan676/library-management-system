@@ -34,12 +34,7 @@ export const BookData2 = [
         description: 'Leadership is an extraordinary book I have ever read',
         src: 'https://th.bing.com/th/id/OIP.NLnWwlOLmmZQGZh3-ZZfJAHaHa?pid=ImgDet&rs=1'
     },
-    {
-        id: 'book3',
-        title: 'Time Management',
-        description: 'Time management book is an  book I have ever read',
-        src: 'https://th.bing.com/th/id/R.129330bf330b29789c955a1fc731a7f7?rik=kbzdHxJo2288mA&pid=ImgRaw&r=0'
-    },
+
 
 ]
 

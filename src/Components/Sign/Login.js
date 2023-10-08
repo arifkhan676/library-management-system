@@ -3,7 +3,7 @@ import './Sign.css'
 import { ContextAPI } from '../../App'
 import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider } from '../../firebase.config';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 
@@ -78,9 +78,7 @@ const Login = () => {
     return (
         <div className='form'>
             <h4> Please Login in </h4>
-
-
-
+            <NavLink to='/Signin' > <p  > Don't have account? Sign-in </p> </NavLink>
             {googleData.isLogin === false ? <Link to='' >  <p style={{ color: 'green' }} >  {googleData.success} </p> </Link> : <p style={{ color: 'red' }} > {googleData.error} </p>}
 
             <form action="" onSubmit={handleSubmit} >
