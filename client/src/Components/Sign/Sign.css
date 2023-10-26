@@ -1,3 +1,7 @@
+body {
+  background-color: #0b1121;
+}
+
 .form {
   text-align: center;
   position: relative;
@@ -20,12 +24,13 @@
   margin-left: 48%;
 }
 
+/*  signup new css */
+
 .app-login {
   display: flex;
   position: relative;
-  top: 150px;
-  width: 80%;
-  left: 10%;
+  width: 60%;
+  left: 20%;
 }
 
 .logo {
@@ -42,7 +47,7 @@
   box-shadow: 3px 3px 3px gray;
 }
 .rightCol {
-  background-color: #fce22a;
+  background-color: #1e5878;
   color: #3c4048;
   width: 750px;
   padding: 20px;
@@ -53,10 +58,13 @@
   font-size: 30px;
   text-align: center;
   font-family: "Josefin Slab", serif;
+  color: #fff;
+  padding: 20px;
 }
 .rightContent {
   padding: 10%;
 }
+
 .content {
   display: flex;
   gap: 13px;
@@ -100,8 +108,7 @@
 }
 .input-div p {
   font-size: 15px;
-  margin-left: 47%;
-  color: #212529;
+  color: #fff;
 }
 
 .input-div span {
@@ -111,6 +118,7 @@
 .button-login {
   text-decoration: none;
   text-align: center;
+
   padding: 11px 32px;
   border: none;
   -webkit-border-radius: 44px;
@@ -123,14 +131,13 @@
   -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
   -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
   box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-  margin-left: 35%;
   margin-top: 15px;
 }
 .pTag {
   margin-top: 7%;
   font-size: 18px;
-  margin-left: 35%;
-  color: #212529;
+  color: yellow;
+  margin-left: 20px;
 }
 .footerIcon {
   position: relative;
