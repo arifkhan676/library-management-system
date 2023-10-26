@@ -1,0 +1,30 @@
+.navbaar {
+  color: #fff;
+}
+.nav-item {
+  margin-left: auto;
+}
+.nav-item ul {
+  display: flex;
+  gap: 20px;
+}
+.nav-item ul li {
+  list-style: none;
+}
+.nav-img {
+  width: 200px;
+  margin-left: 30px;
+}
+.dropdown-menu a {
+  background-color: #fff;
+}
+.dropdown-item a:hover {
+  background-color: #ffca2c;
+}
+.nav-link {
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+}
+.input-box {
+  padding: 10px 10px;
+}

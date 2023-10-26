@@ -1,0 +1,149 @@
+.form {
+  text-align: center;
+  position: relative;
+  margin-top: 10%;
+}
+.btn {
+  position: relative;
+  top: 10px;
+}
+.form p {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+.form input {
+  padding: 10px 20px;
+}
+.footer-icons {
+  display: flex;
+  gap: 20px;
+  margin-left: 48%;
+}
+
+.app-login {
+  display: flex;
+  position: relative;
+  top: 150px;
+  width: 80%;
+  left: 10%;
+}
+
+.logo {
+  width: 70px;
+  border-radius: 50px;
+  position: relative;
+}
+.leftCol {
+  background-color: #454545;
+  color: #fff;
+  width: 750px;
+  padding: 20px;
+  border-radius: 25px 0px 0px 25px;
+  box-shadow: 3px 3px 3px gray;
+}
+.rightCol {
+  background-color: #fce22a;
+  color: #3c4048;
+  width: 750px;
+  padding: 20px;
+  border-radius: 0px 25px 25px 0px;
+  box-shadow: 3px 3px 3px gray;
+}
+.rightContent h1 {
+  font-size: 30px;
+  text-align: center;
+  font-family: "Josefin Slab", serif;
+}
+.rightContent {
+  padding: 10%;
+}
+.content {
+  display: flex;
+  gap: 13px;
+  margin-left: 35%;
+  margin-top: 10%;
+}
+.content h1 {
+  padding: 0px;
+  margin: 0px;
+}
+.content p {
+  padding: 0px;
+  margin: 0px;
+  font-size: 13px;
+}
+.rest-content {
+  text-align: center;
+  position: relative;
+  top: 20px;
+}
+.rest-content h1 {
+  font-family: "Domine", serif;
+}
+.rest-content p {
+  font-size: 18px;
+}
+.inp {
+  border: none;
+  margin-bottom: 10px;
+}
+.input-div {
+  display: grid;
+  gap: 10px;
+  margin-left: 25px;
+}
+.input-div input {
+  border-radius: 30px;
+  padding: 15px;
+  width: 84%;
+  box-shadow: 3px 3px 3px gray;
+}
+.input-div p {
+  font-size: 15px;
+  margin-left: 47%;
+  color: #212529;
+}
+
+.input-div span {
+  font-size: 1.5rem;
+}
+
+.button-login {
+  text-decoration: none;
+  text-align: center;
+  padding: 11px 32px;
+  border: none;
+  -webkit-border-radius: 44px;
+  -moz-border-radius: 44px;
+  border-radius: 44px;
+  font: 18px Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #e5ffff;
+  background: #283438;
+  -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+  -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+  box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+  margin-left: 35%;
+  margin-top: 15px;
+}
+.pTag {
+  margin-top: 7%;
+  font-size: 18px;
+  margin-left: 35%;
+  color: #212529;
+}
+.footerIcon {
+  position: relative;
+  top: 10px;
+  display: flex;
+  gap: 20px;
+  margin-left: 32%;
+}
+.footerIcon .InstagramIcon {
+  font-size: 20px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}

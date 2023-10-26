@@ -1,3 +1,8 @@
+.banner-section{
+   position: relative;
+   top: 50px;
+}
+
 .banner_img{
     width: 1500px;
     height: 550px;

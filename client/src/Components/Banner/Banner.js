@@ -37,7 +37,7 @@ const Banner = () => {
             {data.map((img, i) => {
                 console.log(img);
                 return (
-                    <div>
+                    <div className='banner-section' >
                         <img src={img} alt="" className='banner_img' />
                     </div>
                 )
