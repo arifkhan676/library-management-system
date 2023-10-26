@@ -1,118 +1,80 @@
-import React, { useContext } from "react";
-import "./Sign.css";
-import { ContextAPI } from "../../App";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import GoogleIcon from "@mui/icons-material/Google";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import { auth, provider } from "../../firebase.config";
+import React, { useState } from 'react';
+import validator from 'validator'; // Import the validator library
+import './Sign.css';
 
 const Sign = () => {
-  const [googleData, setGoogleData] = useContext(ContextAPI);
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState(''); // State for error message
 
-  const googleLogin = () => {
-    signInWithPopup(auth, provider).then((res) => {
-      const { displayName, email, photoURL } = res.user;
-      console.log(res.user);
-      const newUser = {
-        isLogin: true,
-        name: displayName,
-        email: email,
-        photoURL: photoURL,
-      };
-      setGoogleData(newUser);
-    });
-  };
+    const handleRegister = async () => {
+        // Validate email and password here
+        if (!isValidEmail(email)) {
+            setErrorMessage('Invalid email format. Please try again.');
+            return;
+        }
+        if (!isValidPassword(password)) {
+            setErrorMessage('Invalid password format. Please try again.');
+            return;
+        }
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    let isValidFrom = true;
+        // Clear the error message if validation passes
+        setErrorMessage('');
+        try {
+            const response = await fetch('http://localhost:8000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, username, password }),
+            });
 
-    if (name === "email") {
-      const re = /\S+@\S+\.\S+/;
-      isValidFrom = re.test(e.target.value);
-    }
-    if (name === "password") {
-      const isValidPass = e.target.value.length > 6;
-      const isValidPassNum = /\d{1}/.test(e.target.value);
-      isValidFrom = isValidPass && isValidPassNum;
-    }
-    if (isValidFrom) {
-      const formUser = { ...googleData };
-      formUser[e.target.name] = e.target.value;
-      setGoogleData(formUser);
-    }
-  };
-  const handleSubmit = (e) => {
-    const userdata = { ...googleData };
-    if (googleData.email && googleData.password) {
-      createUserWithEmailAndPassword(
-        auth,
-        googleData.email,
-        googleData.password
-      )
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          userdata.success = "Account Successfully created";
-          userdata.isLogin = true;
-          setGoogleData(userdata);
-          userdata.error = "";
-        })
-        .catch(() => {
-          userdata.error = "This email already in used";
-          userdata.isLogin = false;
-          setGoogleData(userdata);
-        });
-    }
+            if (response.ok) {
+                console.log('Registration Successful');
+            } else {
+                console.error('Registration failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
 
-    e.preventDefault();
-  };
+    const isValidEmail = (email) => {
+        // Use the validator library to check for a valid email
+        return validator.isEmail(email);
+    };
 
-  return (
-    <div className="form">
-      <h4> Please Sign Up </h4>
+    const isValidPassword = (password) => {
+        // Password must meet your custom criteria:
+        // Add your checks here (e.g., length, complexity)
+        return (
+            password.length >= 8 && // At least 8 characters
+            /[a-z]/.test(password) && // Contains at least one lowercase letter
+            /[A-Z]/.test(password) && // Contains at least one uppercase letter
+            /\d/.test(password) && // Contains at least one digit
+            /[@$!%*?&]/.test(password) // Contains at least one special character
+        );
+    };
 
-      {googleData.isLogin ? (
-        <p style={{ color: "green" }}> {googleData.success} </p>
-      ) : (
-        <p style={{ color: "red" }}> {googleData.error} </p>
-      )}
-
-      <form action="" onSubmit={handleSubmit}>
-        <input
-          placeholder="You Name"
-          name="name"
-          onChange={handleChange}
-          type="text"
-        />
-        <br />
-        <input
-          placeholder="email"
-          name="email"
-          onChange={handleChange}
-          type="text"
-        />
-        <br />
-        <input
-          placeholder="password"
-          name="password"
-          onChange={handleChange}
-          type="password"
-        />
-        <br />
-        <button className="btn btn-primary" value="Submit" type="Submit">
-          {" "}
-          Submit{" "}
-        </button>
-      </form>
-      <hr />
-      <p> Login With </p>
-      <div className="footer-icons">
-        <GoogleIcon onClick={googleLogin} />
-        <FacebookIcon />
-      </div>
-    </div>
-  );
+    return (
+        <div className="form">
+            <form>
+                <label htmlFor="email">Email:</label>
+                <input type="text" id="email" name="email" required onChange={(e) => setEmail(e.target.value)} />
+                <br />
+                <label htmlFor="username">Username:</label>
+                <input type="text" id="username" name="username" required onChange={(e) => setUsername(e.target.value)} />
+                <br />
+                <label htmlFor="password">Password:</label>
+                <input type="password" id="password" name="password" required onChange={(e) => setPassword(e.target.value)} />
+                <br />
+                <button className="btn btn-primary" type="button" onClick={handleRegister}>
+                    Register
+                </button>
+            </form>
+        </div>
+    );
 };
 
 export default Sign;
