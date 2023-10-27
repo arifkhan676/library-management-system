@@ -12,7 +12,6 @@ const Sign = () => {
   const [failed, setFailed] = useState("");
 
   const handleRegister = async () => {
-
     let valid = true;
     // Validate email and password here
     if (!isValidEmail(email) || !isValidPassword(password)) {
@@ -133,3 +132,5 @@ const Sign = () => {
 };
 
 export default Sign;
+
+/* from arif */
