@@ -12,14 +12,11 @@ const Sign = () => {
   const [failed, setFailed] = useState("");
 
   const handleRegister = async () => {
+
+    let valid = true;
     // Validate email and password here
-    if (!isValidEmail(email)) {
-      setErrorMessage("Invalid email format. Please try again.");
-      return;
-    }
-    if (!isValidPassword(password)) {
-      setErrorMessage("Invalid password format. Please try again.");
-      return;
+    if (!isValidEmail(email) || !isValidPassword(password)) {
+      valid = false;
     }
 
     /* bayzed */
@@ -35,7 +32,7 @@ const Sign = () => {
         body: JSON.stringify({ email, username, password }),
       });
 
-      if (response.ok) {
+      if (response.ok && valid) {
         setSuccess("Registration Successful");
         console.log("Successful");
       } else {
