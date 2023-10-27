@@ -95,6 +95,7 @@ const Login = () => {
                   <button className="button-login" type="submit">
                     Submit
                   </button>
+                  <NavLink to="/forgot-password">Forgot your password?</NavLink>
                 </form>
                 {message && <p>{message}</p>}
               </div>
@@ -109,3 +110,23 @@ const Login = () => {
 };
 
 export default Login;
+
+// reset password form
+
+// <div className="password-reset-form">
+//     <input
+//         type="text"
+//         placeholder="Your Email"
+//         required
+//         onChange={(e) => setEmail(e.target.value)}
+//     />
+//     <input
+//         placeholder="New Password"
+//         type="password"
+//         required
+//         onChange={(e) => setNewPassword(e.target.value)}
+//     />
+//     <button className="button-reset" onClick={handlePasswordReset}>
+//         Reset Password
+//     </button>
+// </div>

@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose'); // Require Mongoose
 const bodyParser = require('body-parser');
+const validator = require('validator');
 const cors = require('cors');
 const app = express();
 const port = 8000;
@@ -17,14 +18,20 @@ app.get('/', (req,res)=>{
 // Registration route
 app.post('/register', async (req, res) => {
     const { email, username, password } = req.body;
-
-    // Log the received data to the console
-    console.log('Received registration data:');
-    console.log('Email:', email);
-    console.log('Username:', username);
-    console.log('Password:', password);
-
     try {
+        // Check if an account with this email already exists
+        const existingUser = await UserSignIn.findOne({ email });
+
+        if (existingUser) {
+            // An account with this email already exists
+            return res.status(400).json({ message: 'This email is already in use' });
+        }
+
+        // Validate email and password here
+        if (!isValidEmail(email) || !isValidPassword(password)) {
+            return res.status(401).json({ message: 'Invalid email or password' });
+        }
+
         // Create a new user document
         const newUser = new UserSignIn({ email, username, password });
 
@@ -32,8 +39,7 @@ app.post('/register', async (req, res) => {
         await newUser.save();
         res.status(201).send('User registered successfully.');
     } catch (error) {
-        console.error('Error during registration:', error);
-        res.status(500).send('Registration failed.');
+        res.status(error.statusCode || 500).json({ message: error.message || 'Registration failed' });
     }
 });
 
@@ -57,6 +63,30 @@ app.post('/login', async (req, res) => {
     // User is authenticated, you can send a success response
     res.json({ message: 'Login successful', user });
 });
+
+// Reset Password
+app.post('/reset-password', async (req, res) => {
+    const { email, newPassword } = req.body;
+
+    try {
+        // Check if the email exists in your database
+        const existingUser = await UserSignIn.findOne({ email });
+
+        if (!existingUser) {
+            return res.status(400).json({ message: 'Email is not registered' });
+        }
+
+        // Update the user's password in the database with the new password
+        existingUser.password = newPassword; // Make sure to hash the password securely
+        await existingUser.save();
+
+        // Respond with a success message
+        res.status(200).json({ message: 'Password reset successful' });
+    } catch (error) {
+        res.status(500).json({ message: 'Password reset failed' });
+    }
+});
+
 
 const userSchemaSignIn = new mongoose.Schema({
     email: String,
@@ -98,3 +128,20 @@ connectToDatabase();
 app.listen(port, () => {
    console.log(`Server is running on http://localhost:${port}`);
 });
+
+const isValidEmail = (email) => {
+    // Use the validator library to check for a valid email
+    return validator.isEmail(email);
+  };
+
+  const isValidPassword = (password) => {
+    // Password must meet your custom criteria:
+    // Add your checks here (e.g., length, complexity)
+    return (
+      password.length >= 8 && // At least 8 characters
+      /[a-z]/.test(password) && // Contains at least one lowercase letter
+      /[A-Z]/.test(password) && // Contains at least one uppercase letter
+      /\d/.test(password) && // Contains at least one digit
+      /[@$!%*?&]/.test(password) // Contains at least one special character
+    );
+  };
