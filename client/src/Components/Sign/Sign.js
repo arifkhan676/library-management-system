@@ -22,6 +22,8 @@ const Sign = () => {
       return;
     }
 
+    /* bayzed */
+
     // Clear the error message if validation passes
     setErrorMessage("");
     try {
