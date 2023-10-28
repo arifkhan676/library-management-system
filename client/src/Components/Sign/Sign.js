@@ -35,7 +35,10 @@ const Sign = () => {
         setSuccess("Registration Successful");
         console.log("Successful");
       } else {
-        setFailed("Registration Failed");
+        if(response.status === 401)
+        setFailed("Invalid email or password");
+        else
+        setFailed("This email is already in use");
         console.log("failed");
       }
     } catch (error) {
